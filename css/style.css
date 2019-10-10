@@ -1,0 +1,311 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Raleway", sans-serif;
+  color: white;
+  font-size: 16px;
+  line-height: 1.8em;
+}
+
+body {
+  background-color: #272b36;
+}
+
+/* Instructions for nav bar styling */
+nav {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0; /* required */
+  width: 100%;
+  height: 65px;
+  display: grid;
+  grid-template-rows: 65px;
+  grid-template-columns: 40% 60%;
+  grid-template-areas: "logo icon";
+}
+
+#logo {
+  grid-area: logo;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* styling for links to other pages */
+#icon {
+  display: grid;
+}
+
+.hamburger {
+  display: none;
+  grid-area: icon;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 35px;
+  height: 25px;
+  margin: 20px 15px;
+}
+
+.hamburger > span {
+  width: 100%;
+  height: 5px;
+  background: white;
+  border-radius: 2px;
+}
+
+.close {
+  display: none;
+  margin: 15px 10px 15px 20px;
+  width: 35px;
+  height: 35px;
+  grid-area: icon;
+  position: relative;
+}
+
+.close > span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 35px;
+  height: 5px;
+  background: #000000;
+  transform: rotate(45deg);
+  border-radius: 2px;
+}
+
+.close > span:first-child {
+  transform: rotate(-45deg);
+}
+
+/* wrapper for everything not home logo in nav */
+#menu {
+  grid-area: icon;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* links to pages in expanded comp screen */
+.menu_content {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+
+/* links to pages in hamburger dropdown */
+.dropdown_content {
+  display: none;
+  flex-flow: column wrap;
+  justify-content: right;
+  text-align: right;
+  background: #ededed;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* links to pages in menu */
+a.button {
+  display: block;
+  padding: 1em;
+  text-decoration: none;
+  font-size: 1.2em;
+  font-family: "Notable", sans-serif;
+}
+
+a.button:hover {
+  text-shadow: 3px 3px 5px #000000;
+  transition: 0.3s;
+}
+
+.dropdown_content > a.button {
+  color: #000000;
+  margin-top: 50px;
+}
+
+/* checks if hamburger should be expanded or not */
+input {
+  display: none;
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  margin: 15px;
+  opacity: 0;
+  grid-area: icon;
+  z-index: 3;
+}
+
+input:checked p {
+  padding: 2% 10%;
+  line-height: 1.8em;
+}
+
+p {
+  margin: 3em 12%;
+  line-height: 1.8em;
+}
+
+/* list of musicians on homepage main body */
+#musicians_list {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1em;
+  margin-bottom: 5em;
+}
+
+.card {
+  width: 33.3%;
+}
+
+.card > h2 {
+  padding: 1em;
+  font-family: "Notable", sans-serif;
+  font-size: 1.5em;
+  color: transparent;
+}
+
+.card:hover > h2 {
+  color: white;
+  text-align: center;
+  transition: 0.4s;
+}
+
+.img_wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.img_wrapper > img {
+  max-width: 150px;
+  width: 100%;
+}
+
+.card:hover > .img_wrapper > img {
+  filter: invert(100%);
+  max-width: 165px;
+  transition: 0.4s;
+}
+
+/* id for gridding bio pages for musicians */
+#bio {
+  display: grid;
+  grid-template-columns: 60% 40%;
+}
+
+#bio > img {
+  grid-column: 1;
+  grid-row: 1 / span 4;
+}
+
+#bio > #stats {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  margin-top: 5%;
+}
+
+#bio > h1 {
+  grid-column: 1 / span 2;
+  grid-row: 4;
+  padding-left: 30%;
+  font-size: 3.5em;
+  font-family: "Notable", sans-serif;
+  text-shadow: 4px 4px 6px #000000;
+}
+
+hr {
+  opacity: 0.4;
+}
+
+dt {
+  margin-left: 0.5em;
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+dd {
+  text-align: right;
+  margin-right: 2em;
+  margin-bottom: 2em;
+}
+
+#about {
+  display: grid;
+}
+
+#about > h1 {
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 2;
+  font-size: 10em;
+  font-family: "Notable", sans-serif;
+  opacity: 0.3;
+}
+
+#about > p {
+  grid-column: 1 / span 2;
+  grid-row: 2 / span 3;
+}
+
+@media screen and (max-width: 1000px) {
+  .hamburger {
+    display: flex;
+  }
+
+  input {
+    display: flex;
+  }
+
+  .menu_content {
+    display: none;
+  }
+
+  input:checked ~ .hamburger {
+    display: none;
+  }
+
+  input:checked ~ .close {
+    display: block;
+  }
+
+  input:checked ~ .dropdown_content {
+    display: block;
+  }
+
+  #musicians_list {
+    flex-flow: column wrap;
+    justify-content: center;
+  }
+
+  .card {
+    width: 100%;
+    padding-bottom: 2em;
+  }
+
+  .card > h2 {
+    color: white;
+    text-align: center;
+    padding: 1em;
+  }
+
+  #bio {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #bio > h1 {
+    font-size: 1.8em;
+  }
+
+  #about {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+  }
+
+  #about > h1 {
+    font-size: 5em;
+  }
+}
