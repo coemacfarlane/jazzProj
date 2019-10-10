@@ -121,6 +121,10 @@ a.button:hover {
   transition: 0.3s;
 }
 
+a.button:active {
+  color: #f27e63;
+}
+
 .dropdown_content > a.button {
   color: #000000;
   margin-top: 50px;
